@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "lodash": "^4.17.21",
     "lodash.chunk": "^4.2.0",
     "underscore": "^1.13.1"
   }
