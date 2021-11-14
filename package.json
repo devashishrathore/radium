@@ -1,6 +1,8 @@
 {
   "dependencies": {
+    "express": "^4.17.1",
     "lodash.chunk": "^4.2.0",
+    "nodemon": "^2.0.15",
     "underscore": "^1.13.1"
   }
 }

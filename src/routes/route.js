@@ -1,9 +1,12 @@
 const express = require('express');
 
 const router = express.Router();
-//Devashish Rathore Radium A+
-
-// W3-d2-Tuesday-9nov2021 Sabiha mam (5 question)
+/*
+                                  Devashish Rathore Radium A+
+=> W3-d1-Monday-8nov2021 (module-4-Question)
+on Github Profile - modules/assignment Branch
+=> W3-d2-Tuesday-9nov2021 Sabiha mam (5 question)
+*/
 router.get('/test-me', function (req, res) {
     res.send('My first ever api!')
 });
@@ -30,6 +33,7 @@ router.get('/movies/:movieIndex', function (req, res) {
     let movieIndex = movie[index]
     res.send(movieIndex)
 });
+
 /* Problem-3
 Handle a scenario in problem 2 where if the index is greater 
 than the valid maximum value a message is returned that tells 
@@ -41,9 +45,7 @@ router.get('/movies/:movieIndex', function (req, res) {
     let index = req.params.movieIndex
     let movieIndex = movie[index]
 
-    let handle = index > movie.length ? "use a valid index" : movieAtIndex
-    res.send(handle)
-    //index>movie.length?res.send("use a valid index"):res.send(movieAtIndex)
+    let handle = index > movie.length ? "use a valid index" : movieIndex
     res.send(handle)
 });
 
@@ -118,11 +120,12 @@ router.get('/films/:filmId', function (req, res) {
     res.send(value >= filmNameID.length ? 'not a valid id' : film[0].name)
 
 });
-//W3-d3-Wednesday-10november2021 (Test) 
+/*
+=> W3-d3-Wednesday-10november2021 (Test) 
+on Hakerman Test
+=> W3-d4-Thursday-11november-2Short+2Long Assignment, Pritesh Sir
 
-//W3-d4-Thursday-11november-2Short+2Long Assignment, Pritesh Sir
-
-/* Short Problem-1 
+Short Problem-1 
 write an api which gives the missing number in an 
 array of integers starting from 1 
 EX. [1,2,3,5,6,7] : 4 is missing
@@ -164,7 +167,7 @@ router.get('/random-miss', function (req, res) {
     res.send({ MissNo: missingNumber })
 });
 
-//W3-d5-Friday-12nov2021 Sabiha Mam, Assignment (4-Question)
+// => W3-d5-Friday-12nov2021 Sabiha Mam, Assignment (4-Question)
 
 let movieArr = [{
     'id': 1,
@@ -272,7 +275,7 @@ all the details of the movie in the request at Postman
 (movie details must have an id, name, rating, director and genre) 
 as well as that you return the updated array in the response.*/
 
-router.post("/specific-movies", function (req, res) {
+/*router.post("/specific-movies", function (req, res) {
     let newMovies = {
         id: req.body.id,
         name: req.body.name,
@@ -283,7 +286,7 @@ router.post("/specific-movies", function (req, res) {
     movieArr.push(newMovies)
     res.send(movieArr)
 });
-
+*/
 /*Problem-3 
 Write a GET api (path -> /best-movie) that returns only 
 one movie that has the highest rating in the collection.
@@ -326,7 +329,7 @@ router.post("/specific-movies", function (req, res) {
     console.log(director)
     if (!director) {
         res.send("Director information must be present in the request");
-    } else if (rating < 10) {
+    } else if (rating > 10) {
         res.send("Rating is not valid. A valid rating value is between 1 and 10");
     } else {
         let newMovies = {
