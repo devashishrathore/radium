@@ -10,6 +10,7 @@ router.post('/authors', authorController.createAuthor)
 // Book api
 router.post('/createbooks', bookController.createBook)
 router.get('/books', bookController.getBooks)
+router.get('/allbooks', bookController.authorBooks)
 
 // Publisher api
 router.post('/createpublisher', publisherController.createPublisher)
