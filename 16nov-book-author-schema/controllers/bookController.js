@@ -11,17 +11,18 @@ const createBook = async function (req, res) {
 
 // Task-2 
 const getlistOut = async function (req, res) {
-  let allBooks = await BookModel.find({author_id: 1}).select({name:1, _id:0});
+  let allBooks = await BookModel.find({ author_id: 1 }).select({ name: 1, _id: 0 });
   res.send({ msg: allBooks });
 };
 
 // Task-3 16nov
 const changePrice = async function (req, res) {
-  let savedData = await UserModel.findOneAndUpdate({ name: "Two states" }, { price: 100 }, { new: true })
-  let data = await UserModel1.findOne({ author_id: savedData.author_id })
-  res.send({ "updatedPrice": savedData.price, "authorName": data.author_name })
-};
-
+  let allBooks = await BookModel.findOneAndUpdate({ "name": "Two States" }, { $set: { price: 100 } });
+  let authorId = allBooks.author_id; //1
+  let name = await AuthorModel.find({ author_id: authorId }).select({ author_name: 1, _id: 0 });
+  let price = allBooks.price;
+  res.send({ authorname: name, updatedPrice: price });
+}
 // Task-4 
 const FindBooks = async function (req, res) {
   let book = await BookModel.find({ price: { $gt: 49, $lt: 101 } }).select({ author_id: 1, _id: 0 })
@@ -32,7 +33,7 @@ const FindBooks = async function (req, res) {
 module.exports.createBook = createBook;
 module.exports.getlistOut = getlistOut;
 module.exports.changePrice = changePrice;
-module.exports.FindBooks = FindBooks;
+module.exports.FindBooks = FindBooks
 
 // const updateBooks = async function (req, res) {
   //   let books = await BookModel.updateMany (  {isPublished: false } ,  {author : "PK"}   );  // first json is the query condition  || second condition is the required update or change
