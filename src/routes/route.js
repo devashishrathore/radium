@@ -3,16 +3,11 @@ const router = express.Router();
 const UserModel= require("../models/userModel")
 
 const UserController= require("../controllers/userController")
-const BookController= require("../controllers/bookController")
-const AssignmentBookController= require("../controllers/assignmentBookController")
+// const BookController= require("../controllers/bookController")
+// const AssignmentBookController= require("../controllers/assignmentBookController")
+
 
 const commonMW= require("../middlewares/commonMiddlewares")
-
-
-
-router.get('/test-me', function (req, res) {
-    res.send('My first ever api!')
-});
 
 
 // const mid1= function (req, res, next) {
@@ -28,7 +23,16 @@ router.get('/test-me', function (req, res) {
 //     }
 // }
 
-router.get('/basicRoute', commonMW.mid1, commonMW.mid2, commonMW.mid3, commonMW.mid4,  UserController.basicCode  );
+
+
+router.get('/basicRoute', commonMW.MW1, commonMW.mid1, commonMW.mid2, commonMW.mid3, commonMW.mid4,  UserController.basicCode  );
+
+
+router.get('/mwcode', commonMW.MW1, UserController.mwcode)
+
+
+
+
 
 //e.g. restricted and open-to-al APIs can be handled like below now
 // router.get('/homePage', mid1,   UserController.feeds  );
@@ -47,26 +51,26 @@ router.get('/basicRoute', commonMW.mid1, commonMW.mid2, commonMW.mid3, commonMW.
 // router.get('/basicRoute4', mid1,  UserController.basicCode4  );
 
 
-router.post('/createUser', UserController.createUser  );
-router.get('/getAllUsers', UserController.getUsersData  );
+// router.post('/createUser', UserController.createUser  );
+// router.get('/getAllUsers', UserController.getUsersData  );
 
-router.post('/createBook',  BookController.createBook  );
-router.get('/getAllBooks',  BookController.getBooksData  );
+// router.post('/createBook',  BookController.createBook  );
+// router.get('/getAllBooks',  BookController.getBooksData  );
 
-// mongo session 3: session/schema-basic3
-router.get('/getFirstBook',  BookController.getBook  );
-router.post('/updateBooks',  BookController.updateBooks  );
+// // mongo session 3: session/schema-basic3
+// router.get('/getFirstBook',  BookController.getBook  );
+// router.post('/updateBooks',  BookController.updateBooks  );
 
-router.post('/deleteBook',  BookController.deleteBook  );
+// router.post('/deleteBook',  BookController.deleteBook  );
 
 
-// Previous Day asignment API's
-router.post('/createBook',  AssignmentBookController.createBook  );
-router.get('/bookList',  AssignmentBookController.allBooksList  );
-router.post('/getParticularBooks',  AssignmentBookController.particularBooks  );
- router.post('/getBooksInYear',AssignmentBookController.yearDetails);
-router.get('/getXINRBooks',  AssignmentBookController.priceDetails  );
-router.get('/getRandomBooks', AssignmentBookController.randomBooks  );
+// // Previous Day asignment API's
+// router.post('/createBook',  AssignmentBookController.createBook  );
+// router.get('/bookList',  AssignmentBookController.allBooksList  );
+// router.post('/getParticularBooks',  AssignmentBookController.particularBooks  );
+//  router.post('/getBooksInYear',AssignmentBookController.yearDetails);
+// router.get('/getXINRBooks',  AssignmentBookController.priceDetails  );
+// router.get('/getRandomBooks', AssignmentBookController.randomBooks  );
 
 // Today's assignment
 
