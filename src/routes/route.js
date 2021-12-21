@@ -17,6 +17,7 @@ router.get('/books', middleware.userAuth, bookController.fetchAllBooks)
 router.get('/books/:bookId', middleware.userAuth, bookController.fetchBooksById)
 router.put('/books/:bookId', middleware.userAuth, bookController.updateBookDetails)
 router.delete('/books/:bookId', middleware.userAuth, bookController.deleteBook)
+router.post('/bookcoverurl', bookController.bookCoverUrl)
 
 //Reviews APIs --> To Add review , update review & delete review.
 router.post('/books/:bookId/review', reviewController.addReview)

@@ -2,7 +2,6 @@ const userModel = require('../models/userModel')
 const jwt = require('jsonwebtoken')
 const validator = require('../validators/validator')
 
-
 //Registering users
 const userCreation = async function(req, res) {
     try {
